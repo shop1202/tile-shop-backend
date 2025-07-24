@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const sales = await Tile.find({ type: 'sale' });
+    const sales = await Sale.find().sort({ createdAt: -1 }); // ⬅️ newest first
     res.json(sales);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch sales' });

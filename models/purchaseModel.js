@@ -1,14 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const purchaseSchema = new mongoose.Schema({
   name: String,
   size: String,
   quantity: Number,
   price: Number,
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-});
+}, { timestamps: true }); // ⬅️ this adds createdAt and updatedAt
 
-module.exports = mongoose.model("Purchase", purchaseSchema);
+module.exports = mongoose.model('Purchase', purchaseSchema);
